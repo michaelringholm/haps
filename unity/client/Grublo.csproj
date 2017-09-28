@@ -1,0 +1,309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{532CCF18-FE61-985F-A843-DB3FCF88FAD4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>WebGL:20</UnityBuildTarget>
+    <UnityVersion>2017.1.1f1</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion>4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_1;UNITY_2017_1;UNITY_2017;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;PLATFORM_WEBGL;UNITY_WEBGL;UNITY_WEBGL_API;UNITY_DISABLE_WEB_VERIFICATION;UNITY_GFX_USE_PLATFORM_VSYNC;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_VR;ENABLE_IL2CPP;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_1_1;UNITY_2017_1;UNITY_2017;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;PLATFORM_WEBGL;UNITY_WEBGL;UNITY_WEBGL_API;UNITY_DISABLE_WEB_VERIFICATION;UNITY_GFX_USE_PLATFORM_VSYNC;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_VR;ENABLE_IL2CPP;NET_2_0_SUBSET;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;ENABLE_VSTU</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>Library\UnityAssemblies\UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>Library\UnityAssemblies\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="Facebook.Unity.Settings">
+      <HintPath>Library\FacebookSDK\Facebook.Unity.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="DemiLib">
+      <HintPath>Assets\External\Demigiant\DemiLib\Core\DemiLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween">
+      <HintPath>Assets\External\Demigiant\DOTween\DOTween.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween43">
+      <HintPath>Assets\External\Demigiant\DOTween\DOTween43.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween46">
+      <HintPath>Assets\External\Demigiant\DOTween\DOTween46.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTween50">
+      <HintPath>Assets\External\Demigiant\DOTween\DOTween50.dll</HintPath>
+    </Reference>
+    <Reference Include="DOTweenPro">
+      <HintPath>Assets\External\Demigiant\DOTweenPro\DOTweenPro.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Net20">
+      <HintPath>Assets\External\json\Newtonsoft.Json.Net20.dll</HintPath>
+    </Reference>
+    <Reference Include="GETween">
+      <HintPath>Assets\GUI Animator\Common\Plugins\GETween.dll</HintPath>
+    </Reference>
+    <Reference Include="GUIAnimatorFREE">
+      <HintPath>Assets\GUI Animator\GUI Animator FREE\Plugins\GUIAnimatorFREE.dll</HintPath>
+    </Reference>
+    <Reference Include="TextMeshPro-1.0.55.2017.1.0b12">
+      <HintPath>Assets\TextMesh Pro\Plugins\TextMeshPro-1.0.55.2017.1.0b12.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\External\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\DisplayItem\DisplayItemHelper.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Helper\Perlin.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Helper\TweenMethods.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Shake\Components\ShakeCamera.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Shake\ShakeHelper.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\Camera\FadeCamera.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\Camera\TransitionCameraBase.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\Camera\WipeCamera.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\GameObject\TransitionAnimation.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\GameObject\TransitionFade.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\GameObject\TransitionGameObjectBase.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\GameObject\TransitionMove.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\GameObject\TransitionMoveTraget.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\GameObject\TransitionRotate.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\GameObject\TransitionScale.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\Screen\FadeScreen.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\Screen\TransitionScreenBase.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\Screen\WipeScreen.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionBase.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionHelper.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionManager.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\Fade.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\Move.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\MoveTarget.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\Rotate.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\Scale.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\ScreenFade.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\ScreenWipe.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\TransitionController.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\TransitionStep.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\TransitionStepFloat.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\TransitionStepScreen.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\TransitionStepValue.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\TransitionStepVector3.cs" />
+    <Compile Include="Assets\External\FlipWebApps\BeautifulTransitions\Scripts\Transitions\TransitionSteps\TriggerAnimation.cs" />
+    <Compile Include="Assets\Fantasy Skybox FREE\Demo\Scripts\GE_FantasySkyboxFREE_Demo.cs" />
+    <Compile Include="Assets\Fantasy Skybox FREE\Demo\Scripts\GE_FantasySkyboxFREE_UIs.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCamera.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Orbit Camera\Scripts\GE_OrbitCameraUI.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Toggle Full Screen\Scripts\GE_ToggleFullScreenUI.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\Characters\FirstPersonCharacter\Scripts\FirstPersonController.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\Characters\FirstPersonCharacter\Scripts\HeadBob.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\Characters\FirstPersonCharacter\Scripts\MouseLook.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\Characters\FirstPersonCharacter\Scripts\RigidbodyFirstPersonController.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\AxisTouchButton.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\ButtonHandler.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\CameraSwitch.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\CrossPlatformInputManager.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\InputAxisScrollbar.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\Joystick.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\LevelReset.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\MobileControlRig.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\PlatformSpecific\MobileInput.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\PlatformSpecific\StandaloneInput.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\TiltInput.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\TouchPad.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\CrossPlatformInput\Scripts\VirtualInput.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\Utility\CameraRefocus.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\Utility\CurveControlledBob.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\Utility\FOVKick.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Touch Joystick\Utility\LerpControlledBob.cs" />
+    <Compile Include="Assets\GE Common Assets\Scripts\GE_UIResponder.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo00.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo01.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo02.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo03.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo04.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo05.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo06.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo07.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_Demo08.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_DemoPlaySound.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo (CSharp)\Scripts\GA_FREE_OpenOtherScene.cs" />
+    <Compile Include="Assets\GUI Animator\GUI Animator FREE\Demo Basic (CSharp)\Scripts\GUIAnimatorFREEDemo.cs" />
+    <Compile Include="Assets\JSON\JSONObject.cs" />
+    <Compile Include="Assets\JSON\JSONTemplates.cs" />
+    <Compile Include="Assets\JSON\VectorTemplates.cs" />
+    <Compile Include="Assets\PixelPerfectCamera\Scripts\CanvasScreenSpaceScaler.cs" />
+    <Compile Include="Assets\PixelPerfectCamera\Scripts\CanvasWorldScaler.cs" />
+    <Compile Include="Assets\PixelPerfectCamera\Scripts\Internal\VectorSwizzleExtensions.cs" />
+    <Compile Include="Assets\PixelPerfectCamera\Scripts\PixelPerfectCamera.cs" />
+    <Compile Include="Assets\PixelPerfectCamera\Scripts\PixelSnap.cs" />
+    <Compile Include="Assets\Script\AspectRatio.cs" />
+    <Compile Include="Assets\Script\ColorSchemeManager.cs" />
+    <Compile Include="Assets\Script\commands.cs" />
+    <Compile Include="Assets\Script\DialogManager.cs" />
+    <Compile Include="Assets\Script\Gradient.cs" />
+    <Compile Include="Assets\Script\Levels.cs" />
+    <Compile Include="Assets\Script\Loader.cs" />
+    <Compile Include="Assets\Script\LocalData.cs" />
+    <Compile Include="Assets\Script\Main.cs" />
+    <Compile Include="Assets\Script\Provider.cs" />
+    <Compile Include="Assets\Script\Sequencer.cs" />
+    <Compile Include="Assets\Script\Server.cs" />
+    <Compile Include="Assets\Script\SinMove.cs" />
+    <Compile Include="Assets\Script\TouchTrail.cs" />
+    <Compile Include="Assets\Script\Util.cs" />
+    <Compile Include="Assets\Script\Wheel.cs" />
+    <Compile Include="Assets\Script\WinHint.cs" />
+    <Compile Include="Assets\Script\WinLine.cs" />
+    <Compile Include="Assets\Sound.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark01.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark01_UGUI.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark03.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\Benchmark04.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\CameraController.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\ChatController.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\EnvMapAnimator.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\ObjectSpin.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\ShaderPropAnimator.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\SimpleScript.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\SkewTextExample.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TeleType.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TextConsoleSimulator.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TextMeshProFloatingText.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TextMeshSpawner.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TMP_ExampleScript_01.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TMP_FrameRateCounter.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TMP_TextEventHandler.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TMP_TextSelector_A.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TMP_TextSelector_B.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TMP_UiFrameRateCounter.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\TMPro_InstructionOverlay.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexColorCycler.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexJitter.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexShakeA.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexShakeB.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\VertexZoom.cs" />
+    <Compile Include="Assets\TextMesh Pro\Examples\Scripts\WarpTextExample.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\External\Demigiant\DOTween\DOTween.XML" />
+    <None Include="Assets\External\Demigiant\DOTween\DOTween43.xml" />
+    <None Include="Assets\External\Demigiant\DOTween\DOTween46.xml" />
+    <None Include="Assets\External\Demigiant\DOTween\DOTween50.xml" />
+    <None Include="Assets\External\Demigiant\DOTween\Editor\DOTweenEditor.XML" />
+    <None Include="Assets\External\Demigiant\DOTween\readme.txt" />
+    <None Include="Assets\External\Demigiant\DOTweenPro\DOTweenPro.XML" />
+    <None Include="Assets\External\Demigiant\DOTweenPro\Editor\DOTweenProEditor.XML" />
+    <None Include="Assets\External\Demigiant\DOTweenPro\readme.txt" />
+    <None Include="Assets\External\Demigiant\DemiLib\Core\DemiLib.xml" />
+    <None Include="Assets\External\Demigiant\DemiLib\Core\Editor\DemiEditor.xml" />
+    <None Include="Assets\External\Demigiant\readme_DOTweenPro.txt" />
+    <None Include="Assets\External\FlipWebApps\BeautifulTransitions\Readme - Beautiful Transitions.txt" />
+    <None Include="Assets\External\FlipWebApps\BeautifulTransitions\Resources\Shaders\FadeCamera.shader" />
+    <None Include="Assets\External\FlipWebApps\BeautifulTransitions\Resources\Shaders\WipeCamera.shader" />
+    <None Include="Assets\External\FlipWebApps\BeautifulTransitions\Resources\Shaders\WipeScreen.shader" />
+    <None Include="Assets\External\ToonFX\Toon FX Readme.txt" />
+    <None Include="Assets\External\json\Newtonsoft.Json.Net20.xml" />
+    <None Include="Assets\Fantasy Skybox FREE\Fog and Ambient reference.txt" />
+    <None Include="Assets\Fantasy Skybox FREE\Readme.txt" />
+    <None Include="Assets\GE Common Assets\Readme.txt" />
+    <None Include="Assets\GUI Animator\GUI Animator FREE\!How to.txt" />
+    <None Include="Assets\GUI Animator\GUI Animator FREE\Readme.txt" />
+    <None Include="Assets\JSON\readme.txt" />
+    <None Include="Assets\PixelPerfectCamera\README.txt" />
+    <None Include="Assets\Script\Shader\SolidColor.shader" />
+    <None Include="Assets\Script\Shader\SpriteColorFlash.shader" />
+    <None Include="Assets\Script\Shader\SpriteCropped.shader" />
+    <None Include="Assets\Script\Shader\SpriteCroppedY.shader" />
+    <None Include="Assets\Script\Shader\SpriteCroppedYColorFlash.shader" />
+    <None Include="Assets\TextMesh Pro\Fonts\Anton OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Fonts\Bangers - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Fonts\Oswald-Bold - OFL.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
+    <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
+    <None Include="Assets\dmk Fixed Function Shader Collection\Shaders\Unlit_color_cutout.shader" />
+    <None Include="Assets\dmk Fixed Function Shader Collection\Shaders\Unlit_texture_color.shader" />
+    <None Include="Assets\dmk Fixed Function Shader Collection\Shaders\Unlit_texture_color_lightmap.shader" />
+    <None Include="Assets\dmk Fixed Function Shader Collection\Shaders\unlit_cutout_lightmapped.shader" />
+    <None Include="Assets\dmk Fixed Function Shader Collection\Shaders\unlit_trans_color.shader" />
+    <None Include="Assets\dmk Fixed Function Shader Collection\Shaders\unlit_trans_color_Zoff.shader" />
+    <None Include="Assets\dmk Fixed Function Shader Collection\read_me.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
+</Project>

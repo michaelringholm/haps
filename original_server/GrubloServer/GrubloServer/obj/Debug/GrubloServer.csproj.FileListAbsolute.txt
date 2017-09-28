@@ -1,0 +1,27 @@
+c:\users\peter\documents\visual studio 2015\Projects\GrubloServer\GrubloServer\bin\Debug\GrubloServer.exe.config
+c:\users\peter\documents\visual studio 2015\Projects\GrubloServer\GrubloServer\bin\Debug\GrubloServer.exe
+c:\users\peter\documents\visual studio 2015\Projects\GrubloServer\GrubloServer\bin\Debug\GrubloServer.pdb
+c:\users\peter\documents\visual studio 2015\Projects\GrubloServer\GrubloServer\obj\Debug\GrubloServer.csprojResolveAssemblyReference.cache
+c:\users\peter\documents\visual studio 2015\Projects\GrubloServer\GrubloServer\obj\Debug\GrubloServer.exe
+c:\users\peter\documents\visual studio 2015\Projects\GrubloServer\GrubloServer\obj\Debug\GrubloServer.pdb
+C:\Users\Peter\documents\visual studio 2015\Projects\GrubloServer\GrubloServer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Peter\documents\visual studio 2015\Projects\GrubloServer\GrubloServer\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Peter\documents\visual studio 2015\Projects\GrubloServer\GrubloServer\bin\Debug\Newtonsoft.Json.xml
+D:\Code\Unity\Grublo\GrubloServer\GrubloServer\bin\Debug\GrubloServer.exe.config
+D:\Code\Unity\Grublo\GrubloServer\GrubloServer\obj\Debug\GrubloServer.exe
+D:\Code\Unity\Grublo\GrubloServer\GrubloServer\obj\Debug\GrubloServer.pdb
+D:\Code\Unity\Grublo\GrubloServer\GrubloServer\bin\Debug\GrubloServer.exe
+D:\Code\Unity\Grublo\GrubloServer\GrubloServer\bin\Debug\GrubloServer.pdb
+D:\Code\Unity\Grublo\GrubloServer\GrubloServer\bin\Debug\Newtonsoft.Json.Net20.dll
+D:\Code\Unity\Grublo\GrubloServer\GrubloServer\bin\Debug\Newtonsoft.Json.Net20.pdb
+D:\Code\Unity\Grublo\GrubloServer\GrubloServer\bin\Debug\Newtonsoft.Json.Net20.xml
+E:\Code\Grublo\GrubloServer\GrubloServer\bin\Debug\GrubloServer.exe.config
+E:\Code\Grublo\GrubloServer\GrubloServer\obj\Debug\GrubloServer.exe
+E:\Code\Grublo\GrubloServer\GrubloServer\obj\Debug\GrubloServer.pdb
+E:\Code\Grublo\GrubloServer\GrubloServer\bin\Debug\GrubloServer.exe
+E:\Code\Grublo\GrubloServer\GrubloServer\bin\Debug\GrubloServer.pdb
+E:\Code\Grublo\GrubloServer\GrubloServer\bin\Debug\Newtonsoft.Json.Net20.dll
+E:\Code\Grublo\GrubloServer\GrubloServer\bin\Debug\Newtonsoft.Json.Net20.pdb
+E:\Code\Grublo\GrubloServer\GrubloServer\bin\Debug\Newtonsoft.Json.Net20.xml
+E:\Code\Grublo\GrubloServer\GrubloServer\obj\Debug\GrubloServer.csprojResolveAssemblyReference.cache
+D:\Code\Unity\Grublo\GrubloServer\GrubloServer\obj\Debug\GrubloServer.csprojResolveAssemblyReference.cache

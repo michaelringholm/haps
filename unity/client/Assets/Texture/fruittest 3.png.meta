@@ -1,0 +1,244 @@
+fileFormatVersion: 2
+guid: 37eb632e0e93e2d4787ad60200aa576c
+timeCreated: 1479539053
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: fruittest 3_0
+    21300002: A
+    21300004: B
+    21300006: C
+    21300008: fruittest 3_4
+    21300010: D
+    21300012: fruittest 3_6
+    21300014: E
+    21300016: fruittest 3_8
+    21300018: F
+    21300020: G
+    21300022: H
+    21300024: I
+    21300026: J
+    21300028: fruittest 3_14
+    21300030: fruittest 3_15
+    21300032: fruittest 3_16
+    21300034: fruittest 3_17
+    21300036: fruittest 3_18
+    21300038: fruittest 3_19
+    21300040: fruittest 3_20
+    21300042: fruittest 3_21
+    21300044: fruittest 3_22
+    21300046: fruittest 3_23
+    21300048: fruittest 3_24
+    21300050: fruittest 3_25
+    21300052: fruittest 3_26
+    21300054: fruittest 3_27
+    21300056: fruittest 3_28
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: A
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 409
+        width: 124
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: B
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 423
+        width: 112
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: C
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 423
+        width: 81
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: D
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 427
+        width: 96
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fruittest 3_6
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 421
+        width: 120
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: E
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 267
+        width: 67
+        height: 96
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: F
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 297
+        width: 87
+        height: 88
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: G
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 297
+        width: 122
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: H
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 295
+        width: 80
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: I
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 302
+        width: 98
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: J
+      rect:
+        serializedVersion: 2
+        x: 879
+        y: 313
+        width: 101
+        height: 103
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: fruittest 3_15
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 263
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

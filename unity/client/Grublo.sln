@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grublo", "Grublo.csproj", "{532CCF18-FE61-985F-A843-DB3FCF88FAD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Grublo.Editor", "Grublo.Editor.csproj", "{96067732-ACA8-9199-5271-7FB3936D6387}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{532CCF18-FE61-985F-A843-DB3FCF88FAD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{532CCF18-FE61-985F-A843-DB3FCF88FAD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{532CCF18-FE61-985F-A843-DB3FCF88FAD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{532CCF18-FE61-985F-A843-DB3FCF88FAD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96067732-ACA8-9199-5271-7FB3936D6387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96067732-ACA8-9199-5271-7FB3936D6387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96067732-ACA8-9199-5271-7FB3936D6387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96067732-ACA8-9199-5271-7FB3936D6387}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
