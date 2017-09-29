@@ -7,34 +7,7 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 using DG.Tweening;
-
-
-// Quick
-//  Good info when out of credits
-
-// http://www.bidragsportalen.dk/danske-hjaelpeorganisationer.html
-// http://www.hjaelpeorganisationer.dk/oversigt-over-hjaelpeorganisationer/
-//- BØRNEfonden
-//- Dyrenes Beskyttelse
-//- Kræftens Bekæmpelse
-//- Red Barnet
-//- WWF Verdensnaturfonden
-
-// TODO
-//   Chat
-//   Scratch
-//   Tell up front if there's no money to be won! Check back soon. Need some notification!
-//   Questions, multiple choice. Math, other?
-
-//   Page with prices (maybe the startpage?)
-//   Get a picture of chicken. Get drawing of chicken with animated mouth? Get chicken sound.
-//   More xp goodies
-
-// Neural net learning how player plays. Autoplay.
-
-// Effects
-//  - pairs of particle/antiparticle show up and spirals into eachother and dies (symmetric?)
-//  - Game of life of some sort
+using Facebook.Unity;
 
 public class Main : MonoBehaviour
 {
@@ -47,19 +20,7 @@ public class Main : MonoBehaviour
     public Button[] HoldButtons = new Button[3];
     public Button ButtonStep;
     public Button ButtonSpin;
-    public GameObject IconGhost;
-    public TextMeshProUGUI CreditsText;
-    public TextMeshProUGUI LevelText;
-    public TextMeshProUGUI XpText;
-    public TextMeshProUGUI WinInfo;
-    public GameObject FloatingTextProto;
     public GameObject GameCanvas;
-    public GameObject MenuCanvas;
-    public GameObject OfflineCanvas;
-    public GameObject HelpCanvas;
-    public GameObject DonationCanvas;
-    public GameObject AdResultCanvas;
-    public GameObject PanelDarken;
     public Image XpBarImage;
 
     public ParticleSystem ParticlesXp;
@@ -68,13 +29,6 @@ public class Main : MonoBehaviour
     public ParticleSystem ParticlesHearts;
     public ParticleSystem ParticlesLevel;
     public ParticleSystem ParticleBigSmiley;
-
-    public WinHint WinHint;
-
-    private Vector3 MenuCanvasPos;
-    private Vector3 OfflineCanvasPos;
-    private Vector3 HelpCanvasPos;
-    private Vector3 DonationCanvasPos;
 
     private string userId_;
     private int credits_;
@@ -105,86 +59,8 @@ public class Main : MonoBehaviour
     private Color textColorNormal;
     private Color textColorDisabled;
 
-    int showingOverlay_ = 0;
-
     void OnServerRequestSuccess(bool success)
     {
-        ShowErrorCanvas(!success);
-    }
-
-    void ShowOverlayCanvas(GameObject canvas, Vector3 basePosition, Vector2 targetPosition, bool doDarkening, Action onClose = null)
-    {
-        StartCoroutine(ShowOverlayCanvasCo(canvas, basePosition, targetPosition, doDarkening, onClose));
-    }
-
-    IEnumerator ShowOverlayCanvasCo(GameObject canvas, Vector3 basePosition, Vector2 targetPosition, bool doDarkening, Action onClose)
-    {
-        // First close any existing overlay, ex. when selecting a menu item that opens another overlay
-        State = GlobalState.Playing;
-        yield return null;
-
-        showingOverlay_++;
-
-        canvas.transform.position = basePosition;
-
-        const float Speed = 0.25f;
-        State = GlobalState.Other;
-        Vector3 target3 = targetPosition;
-        target3.z = basePosition.z;
-        canvas.transform.DOMove(target3, Speed);
-        if (doDarkening)
-        {
-            PanelDarken.SetActive(true);
-            PanelDarken.GetComponent<Image>().DOFade(0.8f, Speed);
-        }
-
-        // Wait until returning to game
-        while (State == GlobalState.Other)
-            yield return null;
-
-        if (doDarkening)
-        {
-            PanelDarken.GetComponent<Image>().DOFade(0.0f, Speed);
-        }
-
-        yield return canvas.transform.DOMove(basePosition, Speed).WaitForCompletion();
-        PanelDarken.SetActive(false);
-
-        showingOverlay_--;
-
-        if (onClose != null)
-            onClose();
-    }
-
-    public void ShowMenu()
-    {
-        if (GameState != GameStateEnum.AwaitingUserDecisions && GameState != GameStateEnum.FullSpinRequired)
-            return;
-
-        ShowOverlayCanvas(MenuCanvas, MenuCanvasPos, Vector2.zero, true);
-    }
-
-    public void ShowHelp()
-    {
-        ShowOverlayCanvas(HelpCanvas, HelpCanvasPos, Vector2.zero, false);
-    }
-
-    public void ShowDonations()
-    {
-        ShowOverlayCanvas(DonationCanvas, DonationCanvasPos, Vector2.zero, false);
-    }
-
-    void ShowErrorCanvas(bool show)
-    {
-        if (show)
-        {
-            if (showingOverlay_ == 0)
-                ShowOverlayCanvas(OfflineCanvas, OfflineCanvasPos, new Vector2(0.0f, -2.0f), true);
-        }
-        else
-        {
-            State = GlobalState.Playing;
-        }
     }
 
     // Startup:
@@ -202,20 +78,7 @@ public class Main : MonoBehaviour
         textColorNormal = ButtonSpin.gameObject.GetComponent<Image>().color;
         textColorDisabled = Color.gray;
 
-        WinHint.gameObject.SetActive(false);
-
-        MenuCanvasPos = MenuCanvas.transform.position;
-        HelpCanvasPos = HelpCanvas.transform.position;
-        OfflineCanvasPos = OfflineCanvas.transform.position;
-        DonationCanvasPos = DonationCanvas.transform.position;
-
         ShowButtons(fullSpinRequired: true);
-
-        // Winfo is visible since its nice to see in the designer, remove it
-        var tmpCol = WinInfo.color;
-        tmpCol.a = 0.0f;
-        WinInfo.color = tmpCol;
-        WinInfo.gameObject.SetActive(false);
 
         StartCoroutine(GameLoop());
     }
@@ -276,7 +139,6 @@ public class Main : MonoBehaviour
         int prevLevel = levels_.CurrentLevel;
         levels_.UpdateXp(xp_);
         XpBarImage.fillAmount = levels_.XpBarPos;
-        XpText.text = string.Format("{0} / {1}", levels_.XpThisLevel, levels_.RequiredXpThisLevel);
         if (change != 0)
         {
             XpBarImage.DOColor(Color.white, 0.1f).SetEase(Ease.Flash).SetLoops(2, LoopType.Yoyo);
@@ -284,12 +146,9 @@ public class Main : MonoBehaviour
             bool levelUp = levels_.CurrentLevel != 1 && prevLevel != levels_.CurrentLevel;
             if (levelUp)
             {
-                LevelText.transform.DOPunchScale(new Vector2(0.2f, 0.2f), 3.0f, 2, 0.2f);
                 ParticlesLevel.Play();
             }
         }
-
-        LevelText.text = levels_.CurrentLevel.ToString();
 
         if (save)
             PlayerPrefs.Save();
@@ -303,8 +162,6 @@ public class Main : MonoBehaviour
 
         if (save)
             PlayerPrefs.Save();
-
-        CreditsText.text = credits_.ToString();
     }
 
     IEnumerator WaitForState(GameStateEnum state, bool requirePlaying = false, float timeout = -1)
@@ -429,7 +286,6 @@ NewRound:
 
         if (win.Type == WinType.Credits)
         {
-            yield return ShowCreditWin(winChar, win.Amount);
         }
         else if (win.Type == WinType.Xp)
         {
@@ -441,115 +297,14 @@ NewRound:
         }
     }
 
-    SpriteRenderer CreateGhost(SpriteRenderer source)
-    {
-        var ghost = Instantiate(IconGhost);
-        ghost.transform.position = source.transform.position;
-        ghost.transform.localScale = source.transform.lossyScale;
-        var r = ghost.GetComponent<SpriteRenderer>();
-        r.sortingOrder = 100;
-        r.sprite = source.sprite;
-        return r;
-    }
-
-    // TODO coords are weird (parent scale etc.)
-    private void FireFloatingText(string msg, Vector2 pos)
-    {
-        const float FloatTime = 3.0f;
-        var obj = (GameObject)Instantiate(FloatingTextProto, GameCanvas.transform);
-        obj.transform.position = pos;
-        obj.transform.DOMoveY(pos.y + 1.0f, FloatTime).SetEase(Ease.Linear);
-        obj.transform.localScale = new Vector2(2.0f, 2.0f);
-        var textObj = obj.GetComponent<TextMeshProUGUI>();
-        textObj.text = msg;
-        var color = textObj.color;
-        color.a = 0.0f;
-        textObj.color = color;
-        const float FadeTime = 0.5f;
-
-        textObj.DOFade(1.0f, FadeTime);
-        textObj.DOFade(0.0f, FadeTime).SetDelay(FloatTime - FadeTime);
-
-        GameObject.Destroy(obj, FloatTime);
-    }
-
-    private IEnumerator FireGhosts(float ghostRemoveDelay)
-    {
-        var renderers = wheel_.GetRenderers(WinLineCells);
-        List<SpriteRenderer> ghosts = new List<SpriteRenderer>();
-
-        foreach (var srcRenderer in renderers)
-            ghosts.Add(CreateGhost(srcRenderer));
-
-        // Blink match line
-        var mat = ghosts[0].sharedMaterial;
-        var tween = DOTween.To(() => mat.GetFloat("_FlashAmount"), x => mat.SetFloat("_FlashAmount", x), 0.8f, 0.2f).SetEase(Ease.InFlash).SetLoops(6, LoopType.Yoyo);
-
-        yield return tween.WaitForCompletion();
-
-        // Move ghosts to top
-        for (int i = 0; i < 3; ++i)
-        {
-            const float Delay = 0;
-            var ghost = ghosts[i];
-
-            const float MoveTime = 0.4f;
-            const float Size = 0.6f;
-            const float SeperationDelay = 0.1f;
-
-            ghost.transform.DOMove(new Vector2(-Size + (i * Size), 3.2f), MoveTime).SetDelay(Delay + i * SeperationDelay).SetEase(Ease.OutCubic);
-            ghost.transform.DOScale(Size, MoveTime).SetDelay(Delay + i * SeperationDelay);
-        }
-
-        // Trigger async delayed ghost removal
-        StartCoroutine(FadeAwayCreditWin(ghostRemoveDelay, ghosts, WinInfo));
-    }
-
-    private IEnumerator ShowCreditWin(char winChar, int amount)
-    {
-        const float Delay = 0.25f;
-        float GhostRemoveDelay = 2.0f + ((amount / 2) * Delay);
-        yield return FireGhosts(GhostRemoveDelay);
-
-        // Show win info line
-        WinInfo.text = string.Format("+{0} Kredit", amount);
-        WinInfo.gameObject.SetActive(true);
-
-        yield return WinInfo.DOFade(1.0f, 0.5f).SetDelay(0.5f).WaitForCompletion();
-
-        for (int i = amount - 2; i >= 0; i -= 2) // 4, 10, 20 -> 2, 5, 10
-        {
-            ParticlesCredits.Emit(5);
-
-            WinInfo.text = string.Format("+{0} Kredit", i < 0 ? 0 : i);
-            WinInfo.transform.DOPunchScale(new Vector2(0.3f, 0.3f), Delay, 2, 0.2f);
-            CreditsText.transform.DOPunchScale(new Vector2(0.2f, 0.2f), Delay, 2, 0.2f);
-
-            UpdateCredits(2);
-
-            yield return new WaitForSeconds(Delay);
-        }
-
-        UpdateCredits(0, save: true);
-    }
-
     private IEnumerator ShowXpWin(char winChar, int amount)
     {
         const float Delay = 0.25f;
         float GhostRemoveDelay = 2.0f + ((amount / 10) * Delay);
-        yield return FireGhosts(GhostRemoveDelay);
 
-        // Show win info line
-        WinInfo.text = string.Format("+{0} XP", amount);
-        WinInfo.gameObject.SetActive(true);
-
-        yield return WinInfo.DOFade(1.0f, 0.5f).SetDelay(0.5f).WaitForCompletion();
         for (int i = amount - 10; i >= 0; i -= 10) // 10, 50, 100 -> 1, 5, 10
         {
             ParticlesXp.Emit(5);
-
-            WinInfo.text =  string.Format("+{0} XP", i);
-            WinInfo.transform.DOPunchScale(new Vector2(0.3f, 0.3f), Delay, 2, 0.2f);
 
             UpdateXp(10);
             yield return new WaitForSeconds(Delay);
@@ -567,52 +322,19 @@ NewRound:
         if (!requirementsMet)
         {
             // Level too low
-            WinInfo.text = requirementText;
-            WinInfo.transform.DOPunchScale(new Vector2(0.1f, 0.1f), 1.0f, 2, 0.2f);
         }
         else
         {
             // User won money!
-            WinInfo.text = winText;
         }
-
-        float GhostRemoveDelay = requirementText == "" ? 3.0f : 5.0f;
-        yield return FireGhosts(GhostRemoveDelay);
-
-        // Show win info line
-        WinInfo.gameObject.SetActive(true);
-        yield return WinInfo.DOFade(1.0f, 0.5f).SetDelay(0.5f).WaitForCompletion();
 
         if (requirementsMet)
         {
             ParticlesConfetti.Play();
             // TODO: Update stats
         }
-    }
 
-    private void ShowOutOfCredits()
-    {
-        WinInfo.text = "Du er loebet toer for kredit! Se en reklame for at få flere.";
-        WinInfo.transform.DOPunchScale(new Vector2(0.1f, 0.1f), 1.0f, 2, 0.2f);
-    }
-
-    IEnumerator FadeAwayCreditWin(float delay, List<SpriteRenderer> ghosts, TextMeshProUGUI infoText)
-    {
-        // Wait for spinning, menu or timeout
-        yield return WaitForState(GameStateEnum.Spinning, requirePlaying: true, timeout: delay);
-
-        // Fade away
-        const float FadeTime = 0.5f;
-        WinInfo.DOFade(0.0f, FadeTime);
-        foreach (var ghost in ghosts)
-            ghost.DOFade(0.0f, FadeTime);
-
-        yield return new WaitForSeconds(FadeTime);
-
-        infoText.gameObject.SetActive(false);
-
-        foreach (var ghost in ghosts)
-            GameObject.Destroy(ghost.gameObject);
+        yield return null;
     }
 
     private bool CheckWin(out char winChar)
@@ -723,10 +445,6 @@ NewRound:
             UpdateCredits(-1);
             StartSpin(fullSpin: true);
         }
-        else
-        {
-            ShowOutOfCredits();
-        }
     }
 
     public void OnOneDownClick()
@@ -739,10 +457,6 @@ NewRound:
             UpdateCredits(-1);
             StartSpin(fullSpin: false);
         }
-        else
-        {
-            ShowOutOfCredits();
-        }
     }
 
     void OnEnable()
@@ -754,7 +468,6 @@ NewRound:
     {
         if (hide || GameState != GameStateEnum.AwaitingUserDecisions)
         {
-            ShowHint(false);
             return;
         }
 
@@ -773,22 +486,6 @@ NewRound:
             matchChar = c0;
         else if (c1 == c2)
             matchChar = c1;
-
-        bool showHint = matchChar != '-';
-        if (showHint)
-        {
-            WinHint.UpdateHint(wheel_.GetSpriteForIcon(matchChar), matchChar, levels_.CurrentLevel);
-        }
-
-        ShowHint(showHint);
-    }
-
-    void ShowHint(bool show)
-    {
-        if (WinHint.gameObject.activeInHierarchy != show)
-        {
-            WinHint.gameObject.SetActive(show);
-        }
     }
 
     public void SetWinLine(int[] cells)
@@ -803,47 +500,6 @@ NewRound:
     {
         State = GlobalState.Playing;
     }
-
-    public void ShowAd()
-    {
-#if UNITY_ADS
-        if (Advertisement.IsReady())
-        {
-            var options = new ShowOptions { resultCallback = HandleShowAdResult };
-            Advertisement.Show("", options);
-            Advertisement.Show();
-        }
-        else
-        {
-            Debug.LogError("Ad fail");
-        }
-#endif
-    }
-
-#if UNITY_ADS
-    private void HandleShowAdResult(ShowResult result)
-    {
-        switch (result)
-        {
-            case ShowResult.Finished:
-                Debug.Log("The ad was successfully shown.");
-                // Exploiting offline canvas position
-                ShowOverlayCanvas(AdResultCanvas, OfflineCanvasPos, new Vector2(0.0f, -2.0f), true, () => {
-                    UpdateCredits(20, true);
-                    CreditsText.transform.DOScale(1.5f, 0.5f).SetLoops(6, LoopType.Yoyo).SetEase(Ease.InOutCubic);
-                    ParticleBigSmiley.Emit(1);
-                });
-                // No reward when pressing escape. Need event (lambda).
-                break;
-            case ShowResult.Skipped:
-                Debug.Log("The ad was skipped before reaching the end.");
-                break;
-            case ShowResult.Failed:
-                Debug.LogError("The ad failed to be shown.");
-                break;
-        }
-    }
-#endif
 
     public void AdDialogClosed()
     {
