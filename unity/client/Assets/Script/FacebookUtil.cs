@@ -12,6 +12,9 @@ public static class FacebookUtil
             initCallback();
     }
 
+    // An additional benefit of asking for fewer permissions is that you might not need to submit
+    // your app for Login Review.You only need to submit for Login Review if you're requesting any
+    // permissions other than public_profile, user_friends and email.
     public static void LoginFacebook(FacebookDelegate<ILoginResult> loginCallback)
     {
         var perms = new List<string>() { "public_profile", "email" };

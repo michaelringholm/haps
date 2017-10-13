@@ -1,10 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace Commands
 {
+    [System.Serializable]
+    public class LogData
+    {
+        public string msg = string.Empty;
+    }
+
     [System.Serializable]
     public class CreateUser
     {

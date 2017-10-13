@@ -24,20 +24,17 @@ public class Main : MonoBehaviour
     public Image XpBarImage;
 
     public ParticleSystem ParticlesXp;
-    public ParticleSystem ParticlesCredits;
     public ParticleSystem ParticlesConfetti;
     public ParticleSystem ParticlesHearts;
     public ParticleSystem ParticlesLevel;
     public ParticleSystem ParticleBigSmiley;
 
-    private string userId_;
-    private int credits_;
     private int xp_;
     private Levels levels_ = new Levels();
 
-    public enum GameStateEnum { GetUserId, FullSpinRequired, Spinning, ShowWin, AwaitingUserDecisions };
+    public enum GameStateEnum { None, FullSpinRequired, Spinning, ShowWin, AwaitingUserDecisions };
     [System.NonSerialized]
-    public GameStateEnum GameState = GameStateEnum.GetUserId;
+    public GameStateEnum GameState = GameStateEnum.None;
      
     public enum GlobalState { Playing, Other };
     [System.NonSerialized]
@@ -45,8 +42,6 @@ public class Main : MonoBehaviour
 
     private WinLine winLine_;
 
-    [System.NonSerialized]
-    public static LocalData LocalData = new LocalData();
     [System.NonSerialized]
     public static IServer Server;
 
@@ -63,10 +58,6 @@ public class Main : MonoBehaviour
     {
     }
 
-    // Startup:
-    //  1) get userId (either local storage or new from server)
-    //  2) get sequence (and distribution since distId is 0)
-    //  3) play
     void Start()
     {
         DOTween.Init(false, true, LogBehaviour.ErrorsOnly);
@@ -85,47 +76,18 @@ public class Main : MonoBehaviour
 
     void InitializeLocalData()
     {
-        PlayerPrefs.SetInt(LocalData.CreditsKey, 50);
         PlayerPrefs.SetInt(LocalData.XpKey, 0);
         PlayerPrefs.Save();
     }
 
     void LoadLocalData()
     {
-        credits_ = PlayerPrefs.GetInt(LocalData.CreditsKey, 0);
         xp_ = PlayerPrefs.GetInt(LocalData.XpKey, 0);
     }
 
-    IEnumerator GetUserId()
+    void StartGame()
     {
-        // Missing user id is used to determine if this is first run on install
-        string id = PlayerPrefs.GetString(LocalData.PlayerIdKey, string.Empty);
-        id = "";
-        if (id != string.Empty)
-        {
-            GotUserId(id);
-        }
-        else
-        {
-            InitializeLocalData();
-            StartCoroutine(Server.CreateUser("proto", GotUserId));
-        }
-
-        // Wait until we have a user id
-        while (string.IsNullOrEmpty(userId_))
-            yield return null;
-    }
-
-    void GotUserId(string id)
-    {
-        userId_ = id;
-        PlayerPrefs.SetString(LocalData.PlayerIdKey, id);
-        PlayerPrefs.Save();
-
-        StartCoroutine(Server.RequestSequence(userId_, GotSequence));
-
         LoadLocalData();
-        UpdateCredits();
         UpdateXp();
 
         State = GlobalState.Playing;
@@ -149,16 +111,6 @@ public class Main : MonoBehaviour
                 ParticlesLevel.Play();
             }
         }
-
-        if (save)
-            PlayerPrefs.Save();
-    }
-
-    private void UpdateCredits(int change = 0, bool save = false)
-    {
-        credits_ += change;
-        if (credits_ < 0)
-            credits_ = 0;
 
         if (save)
             PlayerPrefs.Save();
@@ -200,10 +152,9 @@ public class Main : MonoBehaviour
     IEnumerator GameLoop()
     {
         State = GlobalState.Other;
-        GameState = GameStateEnum.GetUserId;
+        GameState = GameStateEnum.None;
 
-        // First get userId
-        yield return GetUserId();
+        StartGame();
 
         // Outer game loop
         while (true)
@@ -284,10 +235,7 @@ NewRound:
     {
         Win win = Win.GetWin(winChar);
 
-        if (win.Type == WinType.Credits)
-        {
-        }
-        else if (win.Type == WinType.Xp)
+        if (win.Type == WinType.Xp)
         {
             yield return ShowXpWin(winChar, win.Amount);
         }
@@ -440,11 +388,7 @@ NewRound:
         if (GameState != GameStateEnum.AwaitingUserDecisions && GameState != GameStateEnum.FullSpinRequired)
             return;
 
-        if (credits_ > 0)
-        {
-            UpdateCredits(-1);
-            StartSpin(fullSpin: true);
-        }
+        StartSpin(fullSpin: true);
     }
 
     public void OnOneDownClick()
@@ -452,11 +396,7 @@ NewRound:
         if (GameState != GameStateEnum.AwaitingUserDecisions)
             return;
 
-        if (credits_ > 0)
-        {
-            UpdateCredits(-1);
-            StartSpin(fullSpin: false);
-        }
+        StartSpin(fullSpin: false);
     }
 
     void OnEnable()
@@ -516,6 +456,23 @@ NewRound:
 
     public void OnDestroy()
     {
-        Server.Stop();
+    }
+
+    private void OnApplicationPause(bool pause)
+    {
+        AppLog.LogLine("Main: OnApplicationPause, pause = {0}", pause);
+
+        bool resumed = !pause;
+        if (resumed)
+        {
+            if (!FB.IsInitialized)
+            {
+                Util.LoadSplashScene();
+            }
+            else
+            {
+                FB.ActivateApp();
+            }
+        }
     }
 }

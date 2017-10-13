@@ -1,8 +1,5 @@
-﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.UI;
-using System.Linq;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 // Masking: Clamp icon rect to screen bounds. No extra component needed.
 // Icons. Mid, below *, above * y.

@@ -65,10 +65,10 @@ Material:
     - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _MaxX: 1
-    - _MaxY: 0.63627046
+    - _MaxY: 0.54320985
     - _Metallic: 0
     - _MinX: 0
-    - _MinY: 0.123975426
+    - _MinY: 0.102292776
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02

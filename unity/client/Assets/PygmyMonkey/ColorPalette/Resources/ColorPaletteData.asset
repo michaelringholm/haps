@@ -1,0 +1,495 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1416b21ef49ec4915ad4c2149698a521, type: 3}
+  m_Name: ColorPaletteData
+  m_EditorClassIdentifier: 
+  m_currentPaletteIndex: 16
+  colorPaletteList:
+  - name: 01 - Red
+    showDetails: 0
+    colorInfoList:
+    - name: Red 50
+      color: {r: 1, g: 0.92156863, b: 0.93333334, a: 1}
+    - name: Red 100
+      color: {r: 1, g: 0.8039216, b: 0.8235294, a: 1}
+    - name: Red 200
+      color: {r: 0.93333334, g: 0.6, b: 0.6, a: 1}
+    - name: Red 300
+      color: {r: 0.89411765, g: 0.44705883, b: 0.44705883, a: 1}
+    - name: Red 400
+      color: {r: 0.93333334, g: 0.3254902, b: 0.3137255, a: 1}
+    - name: Red 500
+      color: {r: 0.9529412, g: 0.2627451, b: 0.21176471, a: 1}
+    - name: Red 600
+      color: {r: 0.89411765, g: 0.22352941, b: 0.20784314, a: 1}
+    - name: Red 700
+      color: {r: 0.8235294, g: 0.18431373, b: 0.18431373, a: 1}
+    - name: Red 800
+      color: {r: 0.77254903, g: 0.15686275, b: 0.15686275, a: 1}
+    - name: Red 900
+      color: {r: 0.7137255, g: 0.10980392, b: 0.10980392, a: 1}
+    colorList: []
+  - name: 02 - Pink
+    showDetails: 0
+    colorInfoList:
+    - name: Pink 50
+      color: {r: 0.9843137, g: 0.8901961, b: 0.92156863, a: 1}
+    - name: Pink 100
+      color: {r: 0.96862745, g: 0.7294118, b: 0.8117647, a: 1}
+    - name: Pink 200
+      color: {r: 0.9529412, g: 0.5568628, b: 0.6901961, a: 1}
+    - name: Pink 300
+      color: {r: 0.9372549, g: 0.38431373, b: 0.5686275, a: 1}
+    - name: Pink 400
+      color: {r: 0.92156863, g: 0.2509804, b: 0.4745098, a: 1}
+    - name: Pink 500
+      color: {r: 0.9098039, g: 0.11764706, b: 0.3882353, a: 1}
+    - name: Pink 600
+      color: {r: 0.84313726, g: 0.105882354, b: 0.3764706, a: 1}
+    - name: Pink 700
+      color: {r: 0.75686276, g: 0.09411765, b: 0.35686275, a: 1}
+    - name: Pink 800
+      color: {r: 0.6745098, g: 0.078431375, b: 0.34117648, a: 1}
+    - name: Pink 900
+      color: {r: 0.5294118, g: 0.05490196, b: 0.30980393, a: 1}
+    colorList: []
+  - name: 03 - Purple
+    showDetails: 0
+    colorInfoList:
+    - name: Purple 50
+      color: {r: 0.9490196, g: 0.89411765, b: 0.95686275, a: 1}
+    - name: Purple 100
+      color: {r: 0.8784314, g: 0.7411765, b: 0.9019608, a: 1}
+    - name: Purple 200
+      color: {r: 0.8039216, g: 0.57254905, b: 0.84313726, a: 1}
+    - name: Purple 300
+      color: {r: 0.7254902, g: 0.40784314, b: 0.78039217, a: 1}
+    - name: Purple 400
+      color: {r: 0.6666667, g: 0.2784314, b: 0.73333335, a: 1}
+    - name: Purple 500
+      color: {r: 0.60784316, g: 0.15294118, b: 0.6862745, a: 1}
+    - name: Purple 600
+      color: {r: 0.5529412, g: 0.14117648, b: 0.6627451, a: 1}
+    - name: Purple 700
+      color: {r: 0.47843137, g: 0.12156863, b: 0.6313726, a: 1}
+    - name: Purple 800
+      color: {r: 0.41568628, g: 0.105882354, b: 0.6, a: 1}
+    - name: Purple 900
+      color: {r: 0.2901961, g: 0.078431375, b: 0.54509807, a: 1}
+    colorList: []
+  - name: 04 - Deep Purple
+    showDetails: 0
+    colorInfoList:
+    - name: Deep Purple 50
+      color: {r: 0.9254902, g: 0.9019608, b: 0.9607843, a: 1}
+    - name: Deep Purple 100
+      color: {r: 0.8156863, g: 0.7647059, b: 0.9098039, a: 1}
+    - name: Deep Purple 200
+      color: {r: 0.69803923, g: 0.6117647, b: 0.85490197, a: 1}
+    - name: Deep Purple 300
+      color: {r: 0.5803922, g: 0.45490196, b: 0.8, a: 1}
+    - name: Deep Purple 400
+      color: {r: 0.49019608, g: 0.34117648, b: 0.75686276, a: 1}
+    - name: Deep Purple 500
+      color: {r: 0.40392157, g: 0.22745098, b: 0.7137255, a: 1}
+    - name: Deep Purple 600
+      color: {r: 0.36862746, g: 0.20784314, b: 0.6901961, a: 1}
+    - name: Deep Purple 700
+      color: {r: 0.31764707, g: 0.1764706, b: 0.654902, a: 1}
+    - name: Deep Purple 800
+      color: {r: 0.27058825, g: 0.15294118, b: 0.62352943, a: 1}
+    - name: Deep Purple 900
+      color: {r: 0.19215687, g: 0.105882354, b: 0.5686275, a: 1}
+    colorList: []
+  - name: 05 - Indigo
+    showDetails: 0
+    colorInfoList:
+    - name: Indigo 50
+      color: {r: 0.90588236, g: 0.9137255, b: 0.9607843, a: 1}
+    - name: Indigo 100
+      color: {r: 0.76862746, g: 0.7882353, b: 0.9098039, a: 1}
+    - name: Indigo 200
+      color: {r: 0.61960787, g: 0.654902, b: 0.8509804, a: 1}
+    - name: Indigo 300
+      color: {r: 0.47058824, g: 0.52156866, b: 0.7921569, a: 1}
+    - name: Indigo 400
+      color: {r: 0.36078432, g: 0.41960785, b: 0.7490196, a: 1}
+    - name: Indigo 500
+      color: {r: 0.24705882, g: 0.31764707, b: 0.7058824, a: 1}
+    - name: Indigo 600
+      color: {r: 0.22352941, g: 0.28627452, b: 0.6666667, a: 1}
+    - name: Indigo 700
+      color: {r: 0.1882353, g: 0.24705882, b: 0.61960787, a: 1}
+    - name: Indigo 800
+      color: {r: 0.15686275, g: 0.20784314, b: 0.57254905, a: 1}
+    - name: Indigo 900
+      color: {r: 0.101960786, g: 0.13725491, b: 0.49019608, a: 1}
+    colorList: []
+  - name: 07 - Light Blue
+    showDetails: 0
+    colorInfoList:
+    - name: Light Blue 50
+      color: {r: 0.8784314, g: 0.95686275, b: 0.99215686, a: 1}
+    - name: Light Blue 100
+      color: {r: 0.69803923, g: 0.89411765, b: 0.9843137, a: 1}
+    - name: Light Blue 200
+      color: {r: 0.5019608, g: 0.827451, b: 0.9764706, a: 1}
+    - name: Light Blue 300
+      color: {r: 0.30980393, g: 0.7607843, b: 0.9647059, a: 1}
+    - name: Light Blue 400
+      color: {r: 0.16078432, g: 0.70980394, b: 0.9607843, a: 1}
+    - name: Light Blue 500
+      color: {r: 0.011764706, g: 0.65882355, b: 0.9529412, a: 1}
+    - name: Light Blue 600
+      color: {r: 0.011764706, g: 0.6039216, b: 0.89411765, a: 1}
+    - name: Light Blue 700
+      color: {r: 0.007843138, g: 0.5294118, b: 0.8156863, a: 1}
+    - name: Light Blue 800
+      color: {r: 0.007843138, g: 0.4627451, b: 0.7372549, a: 1}
+    - name: Light Blue 900
+      color: {r: 0.003921569, g: 0.34117648, b: 0.6039216, a: 1}
+    colorList: []
+  - name: 06 - Blue
+    showDetails: 0
+    colorInfoList:
+    - name: Blue 50
+      color: {r: 0.8862745, g: 0.94509804, b: 0.9882353, a: 1}
+    - name: Blue 100
+      color: {r: 0.7294118, g: 0.8666667, b: 0.98039216, a: 1}
+    - name: Blue 200
+      color: {r: 0.56078434, g: 0.7882353, b: 0.972549, a: 1}
+    - name: Blue 300
+      color: {r: 0.39215687, g: 0.7058824, b: 0.9607843, a: 1}
+    - name: Blue 400
+      color: {r: 0.25882354, g: 0.6431373, b: 0.95686275, a: 1}
+    - name: Blue 500
+      color: {r: 0.12941177, g: 0.58431375, b: 0.9490196, a: 1}
+    - name: Blue 600
+      color: {r: 0.11764706, g: 0.5294118, b: 0.89411765, a: 1}
+    - name: Blue 700
+      color: {r: 0.09803922, g: 0.45882353, b: 0.81960785, a: 1}
+    - name: Blue 800
+      color: {r: 0.08235294, g: 0.39607844, b: 0.7490196, a: 1}
+    - name: Blue 900
+      color: {r: 0.050980393, g: 0.2784314, b: 0.627451, a: 1}
+    colorList: []
+  - name: 08 - Cyan
+    showDetails: 0
+    colorInfoList:
+    - name: Cyan 50
+      color: {r: 0.8745098, g: 0.9647059, b: 0.9764706, a: 1}
+    - name: Cyan 100
+      color: {r: 0.69411767, g: 0.91764706, b: 0.94509804, a: 1}
+    - name: Cyan 200
+      color: {r: 0.49803922, g: 0.8666667, b: 0.9137255, a: 1}
+    - name: Cyan 300
+      color: {r: 0.3019608, g: 0.8117647, b: 0.8784314, a: 1}
+    - name: Cyan 400
+      color: {r: 0.14901961, g: 0.77254903, b: 0.8509804, a: 1}
+    - name: Cyan 500
+      color: {r: 0, g: 0.73333335, b: 0.827451, a: 1}
+    - name: Cyan 600
+      color: {r: 0, g: 0.67058825, b: 0.7529412, a: 1}
+    - name: Cyan 700
+      color: {r: 0, g: 0.5882353, b: 0.6509804, a: 1}
+    - name: Cyan 800
+      color: {r: 0, g: 0.50980395, b: 0.5568628, a: 1}
+    - name: Cyan 900
+      color: {r: 0, g: 0.3764706, b: 0.39215687, a: 1}
+    colorList: []
+  - name: 09 - Teal
+    showDetails: 0
+    colorInfoList:
+    - name: Teal 50
+      color: {r: 0.8745098, g: 0.94509804, b: 0.9411765, a: 1}
+    - name: Teal 100
+      color: {r: 0.69411767, g: 0.87058824, b: 0.85490197, a: 1}
+    - name: Teal 200
+      color: {r: 0.49803922, g: 0.7921569, b: 0.7647059, a: 1}
+    - name: Teal 300
+      color: {r: 0.3019608, g: 0.70980394, b: 0.67058825, a: 1}
+    - name: Teal 400
+      color: {r: 0.14901961, g: 0.64705884, b: 0.6, a: 1}
+    - name: Teal 500
+      color: {r: 0, g: 0.58431375, b: 0.5294118, a: 1}
+    - name: Teal 600
+      color: {r: 0, g: 0.53333336, b: 0.47843137, a: 1}
+    - name: Teal 700
+      color: {r: 0, g: 0.47058824, b: 0.41960785, a: 1}
+    - name: Teal 800
+      color: {r: 0, g: 0.4117647, b: 0.36078432, a: 1}
+    - name: Teal 900
+      color: {r: 0, g: 0.3019608, b: 0.2509804, a: 1}
+    colorList: []
+  - name: 10 - Green
+    showDetails: 0
+    colorInfoList:
+    - name: Green 50
+      color: {r: 0.9098039, g: 0.9607843, b: 0.9137255, a: 1}
+    - name: Green 100
+      color: {r: 0.78431374, g: 0.9019608, b: 0.7882353, a: 1}
+    - name: Green 200
+      color: {r: 0.64705884, g: 0.8392157, b: 0.654902, a: 1}
+    - name: Green 300
+      color: {r: 0.5058824, g: 0.78039217, b: 0.5176471, a: 1}
+    - name: Green 400
+      color: {r: 0.4, g: 0.73333335, b: 0.41568628, a: 1}
+    - name: Green 500
+      color: {r: 0.29803923, g: 0.6862745, b: 0.3137255, a: 1}
+    - name: Green 600
+      color: {r: 0.2627451, g: 0.627451, b: 0.2784314, a: 1}
+    - name: Green 700
+      color: {r: 0.21960784, g: 0.5568628, b: 0.23529412, a: 1}
+    - name: Green 800
+      color: {r: 0.18039216, g: 0.49019608, b: 0.19607843, a: 1}
+    - name: Green 900
+      color: {r: 0.105882354, g: 0.36862746, b: 0.1254902, a: 1}
+    colorList: []
+  - name: 11 - Light Green
+    showDetails: 0
+    colorInfoList:
+    - name: Light Green 50
+      color: {r: 0.94509804, g: 0.972549, b: 0.9137255, a: 1}
+    - name: Light Green 100
+      color: {r: 0.8627451, g: 0.92941177, b: 0.78431374, a: 1}
+    - name: Light Green 200
+      color: {r: 0.77254903, g: 0.88235295, b: 0.64705884, a: 1}
+    - name: Light Green 300
+      color: {r: 0.68235296, g: 0.8352941, b: 0.5058824, a: 1}
+    - name: Light Green 400
+      color: {r: 0.6117647, g: 0.8, b: 0.39607844, a: 1}
+    - name: Light Green 500
+      color: {r: 0.54509807, g: 0.7647059, b: 0.2901961, a: 1}
+    - name: Light Green 600
+      color: {r: 0.4862745, g: 0.7019608, b: 0.25882354, a: 1}
+    - name: Light Green 700
+      color: {r: 0.40784314, g: 0.62352943, b: 0.21960784, a: 1}
+    - name: Light Green 800
+      color: {r: 0.33333334, g: 0.54509807, b: 0.18431373, a: 1}
+    - name: Light Green 900
+      color: {r: 0.2, g: 0.4117647, b: 0.11764706, a: 1}
+    colorList: []
+  - name: 12 - Lime
+    showDetails: 0
+    colorInfoList:
+    - name: Lime 50
+      color: {r: 0.9764706, g: 0.9843137, b: 0.90588236, a: 1}
+    - name: Lime 100
+      color: {r: 0.9411765, g: 0.95686275, b: 0.7647059, a: 1}
+    - name: Lime 200
+      color: {r: 0.9019608, g: 0.93333334, b: 0.6117647, a: 1}
+    - name: Lime 300
+      color: {r: 0.8627451, g: 0.90588236, b: 0.45882353, a: 1}
+    - name: Lime 400
+      color: {r: 0.83137256, g: 0.88235295, b: 0.34117648, a: 1}
+    - name: Lime 500
+      color: {r: 0.8039216, g: 0.8627451, b: 0.22352941, a: 1}
+    - name: Lime 600
+      color: {r: 0.7529412, g: 0.7921569, b: 0.2, a: 1}
+    - name: Lime 700
+      color: {r: 0.6862745, g: 0.7058824, b: 0.16862746, a: 1}
+    - name: Lime 800
+      color: {r: 0.61960787, g: 0.6156863, b: 0.14117648, a: 1}
+    - name: Lime 900
+      color: {r: 0.50980395, g: 0.46666667, b: 0.09019608, a: 1}
+    colorList: []
+  - name: 13 - Yellow
+    showDetails: 0
+    colorInfoList:
+    - name: Yellow 50
+      color: {r: 1, g: 0.99215686, b: 0.90588236, a: 1}
+    - name: Yellow 100
+      color: {r: 1, g: 0.9764706, b: 0.76862746, a: 1}
+    - name: Yellow 200
+      color: {r: 1, g: 0.9607843, b: 0.6156863, a: 1}
+    - name: Yellow 300
+      color: {r: 1, g: 0.94509804, b: 0.4627451, a: 1}
+    - name: Yellow 400
+      color: {r: 1, g: 0.93333334, b: 0.34509805, a: 1}
+    - name: Yellow 500
+      color: {r: 1, g: 0.92156863, b: 0.23137255, a: 1}
+    - name: Yellow 600
+      color: {r: 0.99215686, g: 0.84705883, b: 0.20784314, a: 1}
+    - name: Yellow 700
+      color: {r: 0.9843137, g: 0.7529412, b: 0.1764706, a: 1}
+    - name: Yellow 800
+      color: {r: 0.9764706, g: 0.65882355, b: 0.14509805, a: 1}
+    - name: Yellow 900
+      color: {r: 0.9607843, g: 0.49803922, b: 0.09019608, a: 1}
+    colorList: []
+  - name: 14 - Amber
+    showDetails: 0
+    colorInfoList:
+    - name: Amber 50
+      color: {r: 1, g: 0.972549, b: 0.88235295, a: 1}
+    - name: Amber 100
+      color: {r: 1, g: 0.9254902, b: 0.7019608, a: 1}
+    - name: Amber 200
+      color: {r: 1, g: 0.8784314, b: 0.50980395, a: 1}
+    - name: Amber 300
+      color: {r: 1, g: 0.8352941, b: 0.30980393, a: 1}
+    - name: Amber 400
+      color: {r: 1, g: 0.7921569, b: 0.15686275, a: 1}
+    - name: Amber 500
+      color: {r: 1, g: 0.75686276, b: 0.02745098, a: 1}
+    - name: Amber 600
+      color: {r: 1, g: 0.7019608, b: 0, a: 1}
+    - name: Amber 700
+      color: {r: 1, g: 0.627451, b: 0, a: 1}
+    - name: Amber 800
+      color: {r: 1, g: 0.56078434, b: 0, a: 1}
+    - name: Amber 900
+      color: {r: 1, g: 0.43529412, b: 0, a: 1}
+    colorList: []
+  - name: 15 - Orange
+    showDetails: 0
+    colorInfoList:
+    - name: Orange 50
+      color: {r: 1, g: 0.9529412, b: 0.8784314, a: 1}
+    - name: Orange 100
+      color: {r: 1, g: 0.8784314, b: 0.69803923, a: 1}
+    - name: Orange 200
+      color: {r: 1, g: 0.8, b: 0.5019608, a: 1}
+    - name: Orange 300
+      color: {r: 1, g: 0.7176471, b: 0.3019608, a: 1}
+    - name: Orange 400
+      color: {r: 1, g: 0.654902, b: 0.14901961, a: 1}
+    - name: Orange 500
+      color: {r: 1, g: 0.59607846, b: 0, a: 1}
+    - name: Orange 600
+      color: {r: 0.9843137, g: 0.54901963, b: 0, a: 1}
+    - name: Orange 700
+      color: {r: 0.9607843, g: 0.4862745, b: 0, a: 1}
+    - name: Orange 800
+      color: {r: 0.9372549, g: 0.42352942, b: 0, a: 1}
+    - name: Orange 900
+      color: {r: 0.9019608, g: 0.31764707, b: 0, a: 1}
+    colorList: []
+  - name: 16 - Deep Orange
+    showDetails: 0
+    colorInfoList:
+    - name: Deep Orange 50
+      color: {r: 0.9843137, g: 0.9137255, b: 0.90588236, a: 1}
+    - name: Deep Orange 100
+      color: {r: 1, g: 0.8, b: 0.7372549, a: 1}
+    - name: Deep Orange 200
+      color: {r: 1, g: 0.67058825, b: 0.5686275, a: 1}
+    - name: Deep Orange 300
+      color: {r: 1, g: 0.5411765, b: 0.39607844, a: 1}
+    - name: Deep Orange 400
+      color: {r: 1, g: 0.4392157, b: 0.2627451, a: 1}
+    - name: Deep Orange 500
+      color: {r: 1, g: 0.34117648, b: 0.13333334, a: 1}
+    - name: Deep Orange 600
+      color: {r: 0.95686275, g: 0.31764707, b: 0.11764706, a: 1}
+    - name: Deep Orange 700
+      color: {r: 0.9019608, g: 0.2901961, b: 0.09803922, a: 1}
+    - name: Deep Orange 800
+      color: {r: 0.84705883, g: 0.2627451, b: 0.08235294, a: 1}
+    - name: Deep Orange 900
+      color: {r: 0.7490196, g: 0.21176471, b: 0.047058824, a: 1}
+    colorList: []
+  - name: 17 - Brown
+    showDetails: 0
+    colorInfoList:
+    - name: Brown 50
+      color: {r: 0.9372549, g: 0.92156863, b: 0.9137255, a: 1}
+    - name: Brown 100
+      color: {r: 0.84313726, g: 0.8, b: 0.78431374, a: 1}
+    - name: Brown 200
+      color: {r: 0.7372549, g: 0.6666667, b: 0.6431373, a: 1}
+    - name: Brown 300
+      color: {r: 0.6313726, g: 0.53333336, b: 0.49803922, a: 1}
+    - name: Brown 400
+      color: {r: 0.5529412, g: 0.43137255, b: 0.3882353, a: 1}
+    - name: Brown 500
+      color: {r: 0.4745098, g: 0.33333334, b: 0.28235295, a: 1}
+    - name: Brown 600
+      color: {r: 0.42745098, g: 0.29803923, b: 0.25490198, a: 1}
+    - name: Brown 700
+      color: {r: 0.3647059, g: 0.2509804, b: 0.21568628, a: 1}
+    - name: Brown 800
+      color: {r: 0.30588236, g: 0.20392157, b: 0.18039216, a: 1}
+    - name: Brown 900
+      color: {r: 0.24313726, g: 0.15294118, b: 0.13725491, a: 1}
+    colorList: []
+  - name: 18 - Grey
+    showDetails: 0
+    colorInfoList:
+    - name: Grey 50
+      color: {r: 0.9764706, g: 0.9764706, b: 0.9764706, a: 1}
+    - name: Grey 100
+      color: {r: 0.95686275, g: 0.95686275, b: 0.95686275, a: 1}
+    - name: Grey 200
+      color: {r: 0.93333334, g: 0.93333334, b: 0.93333334, a: 1}
+    - name: Grey 300
+      color: {r: 0.8784314, g: 0.8784314, b: 0.8784314, a: 1}
+    - name: Grey 400
+      color: {r: 0.7411765, g: 0.7411765, b: 0.7411765, a: 1}
+    - name: Grey 500
+      color: {r: 0.61960787, g: 0.61960787, b: 0.61960787, a: 1}
+    - name: Grey 600
+      color: {r: 0.45882353, g: 0.45882353, b: 0.45882353, a: 1}
+    - name: Grey 700
+      color: {r: 0.38039216, g: 0.38039216, b: 0.38039216, a: 1}
+    - name: Grey 800
+      color: {r: 0.25882354, g: 0.25882354, b: 0.25882354, a: 1}
+    - name: Grey 900
+      color: {r: 0.12941177, g: 0.12941177, b: 0.12941177, a: 1}
+    colorList: []
+  - name: 19 - Blue Grey
+    showDetails: 0
+    colorInfoList:
+    - name: Blue Grey 50
+      color: {r: 0.9254902, g: 0.9372549, b: 0.94509804, a: 1}
+    - name: Blue Grey 100
+      color: {r: 0.8117647, g: 0.84705883, b: 0.8627451, a: 1}
+    - name: Blue Grey 200
+      color: {r: 0.6901961, g: 0.74509805, b: 0.77254903, a: 1}
+    - name: Blue Grey 300
+      color: {r: 0.5647059, g: 0.6431373, b: 0.68235296, a: 1}
+    - name: Blue Grey 400
+      color: {r: 0.47058824, g: 0.5647059, b: 0.6117647, a: 1}
+    - name: Blue Grey 500
+      color: {r: 0.3764706, g: 0.49019608, b: 0.54509807, a: 1}
+    - name: Blue Grey 600
+      color: {r: 0.32941177, g: 0.43137255, b: 0.47843137, a: 1}
+    - name: Blue Grey 700
+      color: {r: 0.27058825, g: 0.3529412, b: 0.39215687, a: 1}
+    - name: Blue Grey 800
+      color: {r: 0.21568628, g: 0.2784314, b: 0.30980393, a: 1}
+    - name: Blue Grey 900
+      color: {r: 0.14901961, g: 0.19607843, b: 0.21960784, a: 1}
+    colorList: []
+  - name: Smiley
+    showDetails: 0
+    colorInfoList:
+    - name: Eyes
+      color: {r: 1, g: 1, b: 1, a: 1}
+    - name: Face
+      color: {r: 1, g: 0.9882353, b: 0.14117648, a: 1}
+    - name: Mouth
+      color: {r: 0.70980394, g: 0, b: 0.3254902, a: 1}
+    - name: Contour
+      color: {r: 0, g: 0, b: 0, a: 1}
+    colorList: []
+  - name: House
+    showDetails: 0
+    colorInfoList:
+    - name: Walls
+      color: {r: 1, g: 1, b: 1, a: 1}
+    - name: Door
+      color: {r: 0, g: 0.28235295, b: 1, a: 1}
+    - name: Roof
+      color: {r: 0.2, g: 0.44705883, b: 0, a: 1}
+    - name: Contour
+      color: {r: 0, g: 0, b: 0, a: 1}
+    colorList: []

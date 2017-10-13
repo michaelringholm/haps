@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Script
 {
@@ -7,7 +8,14 @@ namespace Assets.Script
         // Send to AWS when possible
         public static void LogLine(string format, params object[] args)
         {
-            Debug.LogFormat(format, args);
+            string line = string.Format(GetTimestamp() + "> " + format, args);
+            Debug.LogFormat(line);
+        }
+
+        // ISO 8061 timestamp
+        private static string GetTimestamp()
+        {
+            return DateTime.UtcNow.ToString("o", System.Globalization.CultureInfo.InvariantCulture);
         }
     }
 }

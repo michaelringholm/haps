@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
 
+[ExecuteInEditMode]
 public class Gradient : MonoBehaviour {
 
     public Color[] Colors;

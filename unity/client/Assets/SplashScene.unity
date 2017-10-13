@@ -890,6 +890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelContent: {fileID: 1069816371}
+  SkipFacebookLogin: 1
 --- !u!4 &1403137095
 Transform:
   m_ObjectHideFlags: 0

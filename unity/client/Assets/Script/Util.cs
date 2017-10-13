@@ -1,14 +1,21 @@
-﻿using Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Script
 {
-    class Util
+    public class Util
     {
+        public static void LoadSplashScene()
+        {
+            SceneManager.LoadScene("SplashScene", LoadSceneMode.Single);
+        }
+
+        public static void LoadGameScene()
+        {
+            SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        }
+
         [Serializable]
         private class Wrapper<T>
         {

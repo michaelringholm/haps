@@ -1,16 +1,9 @@
 ﻿using UnityEngine;
 using System;
-using Assets.Script;
 using Commands;
 using UnityEngine.Networking;
 using System.Collections;
 using System.Linq;
-
-// Stateless requests on any GamePlayServer.
-//    CreateUser(some platform info) (if not found on client).
-//    RequestSequence(user, ) (ask MoneyServer for clearance).
-//    RequestWin(user, donee, ) (Simple check, or skip entirely in v1. Send update to MoneyServer.
-//    Tables: User. (id) Could skip in theory, but I want it to keep track of activity :-)
 
 public interface IServer
 {
@@ -18,22 +11,15 @@ public interface IServer
     IEnumerator CreateUser(string info, Action<string> cb);
     IEnumerator RequestSequence(string userId, Action<string> cb);
     IEnumerator ClaimWin(string userId, string latestSequence, string doneeId, Action<string> cb);
-    void Stop();
 }
 
 public class Server : IServer
 {
-    const string ServerAddress = "localhost";
-//    const string ServerAddress = "ec2-54-154-204-58.eu-west-1.compute.amazonaws.com";
+//    const string ServerAddress = "localhost";
+    const string ServerAddress = "https://tihe48ll6k.execute-api.eu-central-1.amazonaws.com/Prod/";
 
     private float requestStartTime;
     private Action<bool> OnSuccess;
-    private bool stop_ = false;
-
-    public void Stop()
-    {
-        stop_ = true;
-    }
 
     public Server(Action<bool> onSuccess)
     {
@@ -42,14 +28,8 @@ public class Server : IServer
 
     private IEnumerator SendWithRetry(string request, Action<string> cb, bool first = false)
     {
-        if (first)
-            requestStartTime = Time.realtimeSinceStartup;
-
         while (true)
         {
-            if (stop_)
-                yield break;
-
             var webReq = UnityWebRequest.Get(string.Format("http://{0}/{1}", ServerAddress, request));
             yield return webReq.Send();
 
@@ -77,8 +57,11 @@ public class Server : IServer
 
     public IEnumerator CreateUser(string info, Action<string> cb)
     {
-        var cmd = new CreateUser();
-        cmd.info = info;
+        var cmd = new CreateUser
+        {
+            info = info
+        };
+
         var str = JsonUtility.ToJson(cmd);
         yield return SendWithRetry(str, cb, true);
     }
