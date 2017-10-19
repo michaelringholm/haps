@@ -1,17 +1,15 @@
-﻿using Commands;
-using System;
+﻿using HapsCommands;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using UnityEngine;
 
 namespace Assets.Script
 {
-    enum WinType { Xp, Credits, Money };
+    enum WinType { None, Xp, Circles, Pet, Money };
 
     class Win
     {
-        public static Dictionary<char, Win> WinMap = new Dictionary<char, Win>();
+        public static Dictionary<int, Win> WinMap = new Dictionary<int, Win>();
+
         static Win()
         {
             //CurrentDistribution.Add(Item.Create('A', 0.1)); // 10 xp
@@ -28,34 +26,22 @@ namespace Assets.Script
             //CurrentDistribution.Add(Item.Create('I', 0.1)); // 100 kr
             //CurrentDistribution.Add(Item.Create('J', 0.1)); // 1000 kr
 
-            WinMap.Add('A', Create(WinType.Xp, 10, 1));
-            WinMap.Add('B', Create(WinType.Xp, 50, 1));
-            WinMap.Add('C', Create(WinType.Xp, 100, 1));
-
-            WinMap.Add('D', Create(WinType.Credits, 4, 1));
-            WinMap.Add('E', Create(WinType.Credits, 10, 1));
-            WinMap.Add('F', Create(WinType.Credits, 20, 1));
-
-            WinMap.Add('G', Create(WinType.Money, 1, 1));
-
-            WinMap.Add('H', Create(WinType.Money, 10, 5));
-            WinMap.Add('I', Create(WinType.Money, 100, 10));
-            WinMap.Add('J', Create(WinType.Money, 1000, 20));
+            WinMap.Add(1, Create(WinType.Xp, 10, 1));
+            WinMap.Add(2, Create(WinType.Xp, 50, 1));
+            WinMap.Add(3, Create(WinType.Xp, 100, 1));
         }
 
-        public static string GetRequirementText(char c, int level)
+        public static string GetRequirementText(int c, int level)
         {
             Win w = GetWin(c);
             string result = level < w.LevelRequirement ? string.Format("<color=#ff3010>Kraever level {0}</color>", w.LevelRequirement) : "";
             return result;
         }
 
-        public static string GetWinText(char c)
+        public static string GetWinText(int c)
         {
             // Credits and money are simple
             Win w = GetWin(c);
-            if (w.Type == WinType.Credits)
-                return string.Format("{0} Kredit", w.Amount);
 
             if (w.Type == WinType.Xp)
                 return string.Format("{0} XP", w.Amount);
@@ -63,9 +49,16 @@ namespace Assets.Script
             return string.Format("{0} Krone{1}", w.Amount, w.Amount == 1 ? "" : "r");
         }
 
-        public static Win GetWin(char c)
+        public static Win GetWin(int c)
         {
-            return WinMap[c];
+            Win result;
+            if (!WinMap.TryGetValue(c, out result))
+            {
+                result = new Win();
+                AppLog.LogLine("No win defined for item: {0}", c);
+            }
+
+            return result;
         }
 
         static Win Create(WinType type, int amount, int levelRequirement)
@@ -73,7 +66,7 @@ namespace Assets.Script
             return new Win { Type = type, Amount = amount, LevelRequirement = levelRequirement };
         }
 
-        public WinType Type;
+        public WinType Type = WinType.None;
         public int Amount;
         public int LevelRequirement;
     }
@@ -99,7 +92,7 @@ namespace Assets.Script
         private int usageCount;
         private bool forcedWinUsed = false;
 
-        public void Get(bool fullSpin, List<char> row0, List<char> row1, List<char> row2)
+        public void Get(bool fullSpin, List<int> row0, List<int> row1, List<int> row2)
         {
             executedSteps_.Add(new Step() { fullSpin = fullSpin });
             FillRow(row0, SpinCount0);
@@ -112,7 +105,7 @@ namespace Assets.Script
             //row2[2] = c;
         }
 
-        private void FillRow(List<char> row, int count)
+        private void FillRow(List<int> row, int count)
         {
             row.Clear();
             row.Capacity = count;
@@ -120,23 +113,23 @@ namespace Assets.Script
             for (int i = 0; i < count; ++i)
             {
                 double roll = rnd_.NextDouble();
-                char c = GetOne(roll, distribution_);
+                int c = GetOne(roll, distribution_);
                 row.Add(c);
             }
         }
 
-        private char GetOne(double roll, List<Item> distribution)
+        private int GetOne(double roll, List<Item> distribution)
         {
             double accumulated = 0.0;
             foreach (var item in distribution)
             {
                 accumulated += item.ch;
                 if (roll <= accumulated)
-                    return item.icon[0];
+                    return item.code;
             }
 
             Debug.LogErrorFormat("Roll {0} was not matched in distribution", roll);
-            return 'A';
+            return 0;
         }
 
         public bool NeedsUpdate()
@@ -147,6 +140,25 @@ namespace Assets.Script
         public void SetSequence(ItemSequence seq)
         {
             currentSequence_ = seq;
+            double sum = 0.0;
+
+            for (int i = 0; i < seq.d.Count; ++i)
+                sum += seq.d[i].ch;
+
+            double scale = 1.0 / sum;
+
+            for (int i = 0; i < seq.d.Count; ++i)
+                seq.d[i].ch *= scale;
+
+            double newSum = 0.0;
+            for (int i = 0; i < seq.d.Count; ++i)
+                newSum += seq.d[i].ch;
+
+            AppLog.LogLine("Normalized sum: {0}", newSum);
+
+            //double sum = seq.Sum(i => i.ch);
+            //seq.ForEach(i => i.ch *= 1.0 / sum);
+            //double newSum = seq.Sum(i => i.ch);
             usageCount = 0;
             if (seq.d != null)
                 distribution_ = seq.d;

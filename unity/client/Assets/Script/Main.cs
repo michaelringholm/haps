@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Assets.Script;
-using Commands;
+using HapsCommands;
 using System.Collections.Generic;
 using UnityEngine.UI;
-using System;
 using TMPro;
 using DG.Tweening;
 using Facebook.Unity;
@@ -32,8 +31,8 @@ public class Main : MonoBehaviour
     private int xp_;
     private Levels levels_ = new Levels();
 
-    public enum GameStateEnum { None, FullSpinRequired, Spinning, ShowWin, AwaitingUserDecisions };
-    [System.NonSerialized]
+    public enum GameStateEnum { None, FullSpinRequired, Spinning, ShowWin, AwaitingUserDecisions, CircleWave };
+//    [System.NonSerialized]
     public GameStateEnum GameState = GameStateEnum.None;
      
     public enum GlobalState { Playing, Other };
@@ -72,6 +71,8 @@ public class Main : MonoBehaviour
         ShowButtons(fullSpinRequired: true);
 
         StartCoroutine(GameLoop());
+
+        StartCoroutine(Server.RequestSequence("me", GotSequence));
     }
 
     void InitializeLocalData()
@@ -170,7 +171,7 @@ NewRound:
             UpdateHoldButtons();
 
             var spinLabel = ButtonSpin.GetComponentInChildren<TextMeshProUGUI>();
-            var spinLabelTween = spinLabel.transform.DOPunchScale(new Vector2(0.2f, 0.2f), 2.0f, 0, 0.0f).SetLoops(-1);
+            var spinLabelTween = spinLabel.transform.DOPunchScale(new Vector2(0.3f, 0.3f), 1.0f, 2, 1).SetLoops(-1);
 
             // Wait for user doing a full spin
             yield return WaitForState(GameStateEnum.Spinning);
@@ -181,7 +182,7 @@ NewRound:
 
             SetWinLine(new int[] { 3, 4, 5}); // Default middle
 
-            char winChar;
+            int winIdx;
             bool playerInterfered = false;
             while (!playerInterfered)
             {
@@ -191,11 +192,11 @@ NewRound:
                 while (wheel_.IsSpinning)
                     yield return null;
 
-                if (CheckWin(out winChar))
+                if (CheckWin(out winIdx))
                 {
                     // The player won something on initial spin, celebrate a bit, then back to full spin
                     SetGameState(GameStateEnum.ShowWin);
-                    yield return ShowWin(winChar);
+                    yield return ShowWin(winIdx);
                     goto NewRound;
                 }
 
@@ -219,11 +220,11 @@ NewRound:
             while (wheel_.IsSpinning)
                 yield return null;
 
-            if (CheckWin(out winChar))
+            if (CheckWin(out winIdx))
             {
                 // The player won something on secondary spin, celebrate a bit, then back to full spin
                 SetGameState(GameStateEnum.ShowWin);
-                yield return ShowWin(winChar);
+                yield return ShowWin(winIdx);
                 continue;
             }
 
@@ -231,21 +232,21 @@ NewRound:
         }
     }
 
-    private IEnumerator ShowWin(char winChar)
+    private IEnumerator ShowWin(int winIdx)
     {
-        Win win = Win.GetWin(winChar);
+        Win win = Win.GetWin(winIdx);
 
         if (win.Type == WinType.Xp)
         {
-            yield return ShowXpWin(winChar, win.Amount);
+            yield return ShowXpWin(winIdx, win.Amount);
         }
         else if (win.Type == WinType.Money)
         {
-            yield return ShowMoneyWin(winChar, win.Amount);
+            yield return ShowMoneyWin(winIdx, win.Amount);
         }
     }
 
-    private IEnumerator ShowXpWin(char winChar, int amount)
+    private IEnumerator ShowXpWin(int winIdx, int amount)
     {
         const float Delay = 0.25f;
         float GhostRemoveDelay = 2.0f + ((amount / 10) * Delay);
@@ -261,10 +262,10 @@ NewRound:
         UpdateXp(0, save: true);
     }
 
-    private IEnumerator ShowMoneyWin(char winChar, int amount)
+    private IEnumerator ShowMoneyWin(int winIdx, int amount)
     {
-        string requirementText = Win.GetRequirementText(winChar, levels_.CurrentLevel);
-        string winText = Win.GetWinText(winChar);
+        string requirementText = Win.GetRequirementText(winIdx, levels_.CurrentLevel);
+        string winText = Win.GetWinText(winIdx);
 
         bool requirementsMet = requirementText == "";
         if (!requirementsMet)
@@ -285,9 +286,9 @@ NewRound:
         yield return null;
     }
 
-    private bool CheckWin(out char winChar)
+    private bool CheckWin(out int winIdx)
     {
-        winChar = '\0';
+        winIdx = -1;
         var final9 = wheel_.GetFinal9();
         int id0 = WinLineCells[0];
         int id1 = WinLineCells[1];
@@ -295,46 +296,53 @@ NewRound:
         if ((final9[id0] == final9[id1]) && (final9[id1] == final9[id2]))
         {
             // All 3 are equal
-            winChar = final9[id0];
+            winIdx = final9[id0];
+            AppLog.LogLine("Matched 3: {0}", winIdx);
             return true;
         }
 
         return false;
     }
 
-    void GotSequence(string seq)
+    void GotSequence(ItemSequence seq)
     {
-        var sequence = Util.FromJson<ItemSequence>(seq);
-        sequencer_.SetSequence(sequence);
+        sequencer_.SetSequence(seq);
     }
 
     void SetGameState(GameStateEnum newState)
     {
+        AppLog.LogLine("Setting new game state: {0}", newState);
+
         GameState = newState;
         GameStateChanged(newState);
     }
 
     void GameStateChanged(GameStateEnum newState)
     {
-//        Debug.LogFormat("GameState changed to: {0}", newState.ToString());
     }
 
     private void StartSpin(bool fullSpin)
     {
-        if (!sequencer_.NeedsUpdate())
+        if (!fullSpin)
         {
-            var row0 = new List<char>();
-            var row1 = new List<char>();
-            var row2 = new List<char>();
-            sequencer_.Get(fullSpin, row0, row1, row2);
-
-            wheel_.SetNextSpin(row0, row1, row2);
-            wheel_.DoSpin(fullSpin, holdFlags_);
-
-            lastSpinWasFull_ = fullSpin;
-
-            SetGameState(GameStateEnum.Spinning);
+            wheel_.DoOneDown(holdFlags_);
         }
+        else
+        {
+            if (!sequencer_.NeedsUpdate())
+            {
+                var row0 = new List<int>();
+                var row1 = new List<int>();
+                var row2 = new List<int>();
+                sequencer_.Get(fullSpin, row0, row1, row2);
+
+                wheel_.SetNextSpin(row0, row1, row2);
+                wheel_.DoFullSpin(holdFlags_);
+            }
+        }
+
+        lastSpinWasFull_ = fullSpin;
+        SetGameState(GameStateEnum.Spinning);
     }
 
     public void OnHold0Click()
@@ -399,6 +407,11 @@ NewRound:
         StartSpin(fullSpin: false);
     }
 
+    public void OnPopButtonClick()
+    {
+
+    }
+
     void OnEnable()
     {
         winLine_ = GameObject.Find("WinLine").GetComponent<WinLine>();
@@ -415,17 +428,17 @@ NewRound:
         int id0 = WinLineCells[0];
         int id1 = WinLineCells[1];
         int id2 = WinLineCells[2];
-        char c0 = final9[id0];
-        char c1 = final9[id1];
-        char c2 = final9[id2];
+        int c0 = final9[id0];
+        int c1 = final9[id1];
+        int c2 = final9[id2];
 
-        char matchChar = '-';
+        int matchCode = -1;
         if (c0 == c1)
-            matchChar = c0;
+            matchCode = c0;
         else if (c0 == c2)
-            matchChar = c0;
+            matchCode = c0;
         else if (c1 == c2)
-            matchChar = c1;
+            matchCode = c1;
     }
 
     public void SetWinLine(int[] cells)

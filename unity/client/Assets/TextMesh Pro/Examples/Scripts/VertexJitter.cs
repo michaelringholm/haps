@@ -76,8 +76,8 @@ namespace TMPro.Examples
             VertexAnim[] vertexAnim = new VertexAnim[1024];
             for (int i = 0; i < 1024; i++)
             {
-                vertexAnim[i].angleRange = Random.Range(10f, 25f);
-                vertexAnim[i].speed = Random.Range(1f, 3f);
+                vertexAnim[i].angleRange = 25;
+                vertexAnim[i].speed = 0.1f;// Random.Range(1f, 3f);
             }
 
             // Cache the vertex data of the text object as the Jitter FX is applied to the original position of the characters.
@@ -140,10 +140,12 @@ namespace TMPro.Examples
                     destinationVertices[vertexIndex + 2] = sourceVertices[vertexIndex + 2] - offset;
                     destinationVertices[vertexIndex + 3] = sourceVertices[vertexIndex + 3] - offset;
 
-                    vertAnim.angle = Mathf.SmoothStep(-vertAnim.angleRange, vertAnim.angleRange, Mathf.PingPong(loopCount / 25f * vertAnim.speed, 1f));
-                    Vector3 jitterOffset = new Vector3(Random.Range(-.25f, .25f), Random.Range(-.25f, .25f), 0);
+                    vertAnim.angle = Mathf.Sin(Time.time * 10 + i * 0.8f) * 5;// Mathf.SmoothStep(-vertAnim.angleRange, vertAnim.angleRange, Mathf.PingPong(loopCount / 25f * vertAnim.speed, 1f));
+                    float x = Mathf.Sin(Time.time * 8 + i * 0.8f) * 0.05f;
+                    float y = Mathf.Sin(Time.time * 11 + i * 0.8f) * 0.05f;
+                    Vector3 jitterOffset = new Vector3(x, y, 0);
 
-                    matrix = Matrix4x4.TRS(jitterOffset * CurveScale, Quaternion.Euler(0, 0, Random.Range(-5f, 5f) * AngleMultiplier), Vector3.one);
+                    matrix = Matrix4x4.TRS(jitterOffset * CurveScale, Quaternion.Euler(0, 0, vertAnim.angle * AngleMultiplier), Vector3.one);
 
                     destinationVertices[vertexIndex + 0] = matrix.MultiplyPoint3x4(destinationVertices[vertexIndex + 0]);
                     destinationVertices[vertexIndex + 1] = matrix.MultiplyPoint3x4(destinationVertices[vertexIndex + 1]);
@@ -166,8 +168,8 @@ namespace TMPro.Examples
                 }
 
                 loopCount += 1;
-
-                yield return new WaitForSeconds(0.1f);
+                yield return null;
+//                yield return new WaitForSeconds(0.1f);
             }
         }
 

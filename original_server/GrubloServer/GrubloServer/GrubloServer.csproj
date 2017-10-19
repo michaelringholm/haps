@@ -46,9 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Grublo\Assets\Script\commands.cs">
-      <Link>commands.cs</Link>
-    </Compile>
+    <Compile Include="Command.cs" />
     <Compile Include="CommandHandler.cs" />
     <Compile Include="Simulator.cs" />
     <Compile Include="SocketListener.cs" />

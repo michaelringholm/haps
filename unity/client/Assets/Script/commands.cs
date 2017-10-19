@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
-namespace Commands
+namespace HapsCommands
 {
     [System.Serializable]
     public class LogData
@@ -27,23 +28,33 @@ namespace Commands
     [System.Serializable]
     public class Item
     {
-        public static Item Create(char icon, double chance)
+        public static Item Create(int code, double chance)
         {
-            return new Item() { icon = icon.ToString(), ch = chance };
+            return new Item() { code = code, ch = chance };
         }
-        public string icon = "";
+        public int code = -1;
         public double ch = 0.0;
     }
 
     [System.Serializable]
     public class ItemSequence
     {
+        public void AddItem(int code, float chance)
+        {
+            d.Add(Item.Create(code, chance));
+        }
+
         public char[] fw = new char[0]; // forced win, use instead of seed
         public int s = 0;   // seed
         public int suc = 10; // seed usage count
         public uint f = 0;   // flags
         public int did = 0;  // distribution id
         public List<Item> d = new List<Item>(); // distribution
+
+        internal void ForEach(object p)
+        {
+            throw new NotImplementedException();
+        }
     }
     // <--------- Sequence
 
